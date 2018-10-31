@@ -31,15 +31,18 @@ cc.Class({
     // onLoad () {},
 
     start () {
-
+		console.log("Bullet started");
     },
 
     update (dt) {
-        this.node += (this.direction * this.speed * dt);
+		console.log(this.node);
+		// this.node += (this.direction * this.speed * dt);
+		this.node.x += this.speed * dt;
     },
 
     onCollisionEnter (other, self) {
         if (other.tag == this.collisionTag){
+			console.log("Bullet destroyed!");
             this.node.destroy();
         }
     }
