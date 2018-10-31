@@ -28,18 +28,35 @@ cc.Class({
         }
     },
 
+    // May need to be called only once like by a game manager
+    onEnable: function () {
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+    },
+
+    // May need to be called only once like by a game manager
+    onDisable: function () {
+        cc.director.getCollisionManager().enabled = false;
+        cc.director.getCollisionManager().enabledDebugDraw = false;
+    },
+
     // onLoad () {},
 
     start () {
+		console.log("Bullet started");
     },
 
     update (dt) {
-		// this.node += (this.direction * this.speed * dt);
-		this.node.x += this.speed * dt;
+        var newPos = this.direction.clone();
+        newPos.mulSelf(this.speed * dt);
+        newPos.addSelf(this.node.position);
+		console.log(newPos.toString());
+		this.node.position = newPos;
     },
 
     onCollisionEnter (other, self) {
         if (other.tag == this.collisionTag){
+			console.log("Bullet destroyed!");
             this.node.destroy();
         }
     }
