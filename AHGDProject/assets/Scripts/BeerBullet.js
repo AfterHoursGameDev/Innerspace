@@ -30,14 +30,16 @@ cc.Class({
 
     // May need to be called only once like by a game manager
     onEnable: function () {
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
+		var cmanager = cc.director.getCollisionManager();
+        cmanager.enabled = true;
+        cmanager.enabledDebugDraw = true;
     },
 
     // May need to be called only once like by a game manager
     onDisable: function () {
-        cc.director.getCollisionManager().enabled = false;
-        cc.director.getCollisionManager().enabledDebugDraw = false;
+		var cmanager = cc.director.getCollisionManager();
+        cmanager.enabled = false;
+        cmanager.enabledDebugDraw = false;
     },
 
     // onLoad () {},
@@ -50,14 +52,25 @@ cc.Class({
         var newPos = this.direction.clone();
         newPos.mulSelf(this.speed * dt);
         newPos.addSelf(this.node.position);
-		console.log(newPos.toString());
+		//console.log(newPos.toString());
 		this.node.position = newPos;
+		if (this.node.position.x > 2000)
+		{
+			console.log("Bullet out of range, destroying");
+            this.node.destroy();
+		}
     },
 
     onCollisionEnter (other, self) {
+		console.log("Bullet collided!");
         if (other.tag == this.collisionTag){
+			// Tell the thing hit that it was hit by a bullet
+			console.log(other);
+			other.node.getComponent("Health").take_damage(this, 25, "splash");
+
 			console.log("Bullet destroyed!");
             this.node.destroy();
+			
         }
     }
 });

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "4d0fefc0-3a6a-47d0-b574-9323f6e81ddb",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "Alien1Dying": {
+      "ver": "1.0.3",
+      "uuid": "2e623833-2905-4bbb-8ffd-b7f777ca4100",
+      "rawTextureUuid": "4d0fefc0-3a6a-47d0-b574-9323f6e81ddb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 1.5,
+      "trimX": 4,
+      "trimY": 0,
+      "width": 57,
+      "height": 147,
+      "rawWidth": 62,
+      "rawHeight": 150,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
