@@ -53,12 +53,7 @@ cc.Class({
 
 	_onStartedGame () {
 		console.log("Game started");
-		if (this == null){
-			console.log("WTF!!");
-		}
-		else if (this.gameGroup == null){
-			console.log("HOW?!!");
-		}
+
 		// Disable game group
 		this.gameGroup.active = true;
 	},
