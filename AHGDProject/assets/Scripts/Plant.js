@@ -14,15 +14,14 @@ cc.Class({
         state: { default: PlantState.Growing, type: PlantState },
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event){
+        this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event) {
             this.onClicked();
         }, this);
     },
 
-    onClicked() {
+    onClicked() {       
+        // TODO - prevent event propogation upon harvest?
         switch (this.state) {
             case PlantState.Growing:
                 console.log("Plant still growing, no effect.");
@@ -38,22 +37,17 @@ cc.Class({
 
     harvestMaturePlant() {
         console.log("Harvesting mature plant.");
-
-        // TODO - Report to the player's harvest manager
-
+        // TODO - Report harvest to PlantManager
         this.destroyPlant();
     },
 
     harvestDeadPlant() {
         console.log("Harvesting dead plant.");
-
-        // TODO - Report to the player's harvest manager - half points?
-
         this.destroyPlant();
     },
 
     destroyPlant() {
+        // TODO - Report to PlantSpawnPoint that the plant has been destroyed
         this.node.destroy();
     },
-
 });
