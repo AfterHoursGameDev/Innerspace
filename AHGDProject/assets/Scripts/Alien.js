@@ -77,7 +77,7 @@ cc.Class({
 	{
 		if (this.track != null) 
 		{
-			this.left = 50;
+			this.left = 100;
 			this.right = this.track.getContentSize().width;
 			this.pos = this.right;
 			this.node.position = cc.v2(this.pos, 0);

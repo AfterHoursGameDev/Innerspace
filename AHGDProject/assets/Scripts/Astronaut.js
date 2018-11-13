@@ -8,14 +8,10 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-var Astronaut = require("Astronaut");
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-		bullet: { default: null, type: cc.Node },
-		astronaut: { default: null, type: Astronaut },
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -31,36 +27,28 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+		track: { default: null, type: cc.Node },
+		shiftX: 0,
+		shiftY: -50,
     },
 
-	// Privates
-	
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event){
-            //console.log("mouse down event detected in lane");
-			this.fire_bullet();
-			event.stopPropagation();
-        }, this);
-	},
+    // onLoad () {},
 
     start () {
-
+		this.moveToTrack();
     },
 	
-	fire_bullet()
+	changeTrack(newTrack)
 	{
-		//console.log("Firing bullet");
-		
-		// Move astronaut
-		this.astronaut.changeTrack(this.node);
-		
-        var scene = cc.director.getScene();
-        var bullet = cc.instantiate(this.bullet);
-        bullet.position = cc.v2(25, 0);
-        this.node.addChild(bullet);
-        bullet.active = true;
+		this.track = newTrack;
+		this.moveToTrack();
+	},
+	
+	moveToTrack()
+	{
+		this.node.position = cc.v2(this.track.position.x + this.shiftX, this.track.position.y + this.shiftY);
 	},
 
     // update (dt) {},
