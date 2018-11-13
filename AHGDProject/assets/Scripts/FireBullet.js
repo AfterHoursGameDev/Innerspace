@@ -36,8 +36,9 @@ cc.Class({
 
     onLoad () {
         this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event){
-            console.log("mouse down event detected in lane");
+            //console.log("mouse down event detected in lane");
 			this.fire_bullet();
+			event.stopPropagation();
         }, this);
 	},
 
@@ -47,15 +48,13 @@ cc.Class({
 	
 	fire_bullet()
 	{
-		console.log("Firing bullet");
+		//console.log("Firing bullet");
 		
         var scene = cc.director.getScene();
         var bullet = cc.instantiate(this.bullet);
-		console.log(this);
-		console.log(this.node);
-        bullet.position = cc.v2(this.node.position.x-50, this.node.position.y);
+        bullet.position = cc.v2(-50, 0);
+        this.node.addChild(bullet);
         bullet.active = true;
-        scene.addChild(bullet);
 	},
 
     // update (dt) {},

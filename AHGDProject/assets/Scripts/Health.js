@@ -36,11 +36,11 @@ cc.Class({
 
 	take_damage(source, damage, type)
 	{
-		console.log("Health hit for " + damage + " " + type + " damage!");
+		//console.log("Health hit for " + damage + " " + type + " damage!");
 		this.health -= damage;
 		if (this.health <= 0)
 		{
-		console.log("Health goes to zero!");
+			//console.log("Health goes to zero!");
 			this.health = 0;
 			this.node.emit('died', { source, damage, type, health: this.health });
 		}

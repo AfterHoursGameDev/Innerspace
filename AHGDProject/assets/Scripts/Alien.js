@@ -67,20 +67,24 @@ cc.Class({
 		this.node.on("took_damage", this.took_damage, this);
 		this.node.on("died", this.died, this);
 		this.sprite = this.node.getComponent(cc.Sprite);
+		
+		this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event) {
+			this.fire_at(event);
+        }, this);
 	},
 
     start () 
 	{
 		if (this.track != null) 
 		{
-			this.left = this.track.position.x + 50;
-			this.right = this.track.position.x + this.track.getContentSize().width
+			this.left = 50;
+			this.right = this.track.getContentSize().width;
 			this.pos = this.right;
-			this.node.position = cc.v2(this.pos, this.node.position.y);
+			this.node.position = cc.v2(this.pos, 0);
 		} 
 		else 
 		{
-			console.log("Alien NOT on track!");
+			console.warn("Alien NOT on track!");
 		}
     },
 	
@@ -93,8 +97,32 @@ cc.Class({
 	
 	attack() {
 		// Do the attack here!
-		console.log("Attack!");
+		//console.log("Attack!");
 		this.start_attack();
+	},
+
+	isPosFree(pos) 
+	{
+//	console.log("Num children: " + this.track.children.length);
+//	console.log(this.track);
+		for (var i=0; i<this.track.children.length; i++) 
+		{
+			var target = this.track.children[i];
+			if ((target != this.node) && (target.getComponent("Health"))) 
+			{
+				if (target.position.x < pos)
+				{
+					if ((target.position.x + target.getContentSize().width/2) >= (pos - (this.node.getContentSize().width/2)))
+					{
+						//console.log("Bumping into: " + target.getContentSize().width)
+						//console.log(this);
+						//console.log(target);
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	},
 	
     update (dt) {
@@ -102,13 +130,17 @@ cc.Class({
 		{
 			case EnAlienState.MoveForward:
 				var diff = this.move_speed * dt;
-				this.pos -= diff;
-				if (this.pos < this.left)
+				var oldpos = this.pos;
+				if (this.isPosFree(this.pos - diff))
 				{
-					this.pos = this.left;
-					this.start_attack();
+					this.pos -= diff;
+					if (this.pos <= this.left)
+					{
+						this.pos = this.left;
+						this.start_attack();
+					}
+					this.node.position = cc.v2(this.pos, this.node.position.y);
 				}
-				this.node.position = cc.v2(this.pos, this.node.position.y);
 				break;
 			case EnAlienState.Stunned:
 				this.stun_time += dt;
@@ -148,8 +180,8 @@ cc.Class({
 
 	took_damage(event)
 	{
-	console.log("Took damage!");
-	console.log(event);
+		//console.log("Took damage!");
+		//console.log(event);
 		this.state = EnAlienState.Stunned;
 		this.stun_time = 0;
 		this.sprite.spriteFrame = this.imageStunned;
@@ -157,11 +189,18 @@ cc.Class({
 
 	died(event)
 	{
-		console.log("Died!");
-		console.log(event);
+		//console.log("Died!");
+		//console.log(event);
 
 		this.state = EnAlienState.Dying;
 		this.sprite.spriteFrame = this.imageDying;
 		this.dying_time = 0;
+	},
+	
+	fire_at(event)
+	{
+		// Clicking on this alien causes the track to fire a bullet
+		this.track.getComponent("FireBullet").fire_bullet();
+		event.stopPropagation();
 	}
 });
