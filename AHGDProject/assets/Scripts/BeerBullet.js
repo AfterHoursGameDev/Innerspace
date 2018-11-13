@@ -49,6 +49,9 @@ cc.Class({
     start () {
 		//console.log("Bullet started");
 		this.track = this.node.getParent();
+		var anim = this.node.getComponent(cc.Animation);
+		var animState = anim.play('BulletAnimation');
+		animState.speed = 0.05;
     },
 
 	checkCollision()

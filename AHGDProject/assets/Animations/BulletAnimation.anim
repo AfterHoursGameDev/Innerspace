@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "BulletAnimation",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.06666666666666667,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "ed896270-32cb-4799-8bf9-3f35171fa481"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "371bc84c-e25f-49ae-83de-411e9e04d117"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "b29275c3-2a57-47ac-92a3-a2782177c4bb"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "09bba26c-12e1-4410-a99c-d74009c190a6"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
