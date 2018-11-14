@@ -1,6 +1,8 @@
 const PLAY_SCENE = 'PlayGame.fire';
 const SHOW_MENU = 'showMenu';
 const HIDE_MENU = 'hideMenu';
+const VICTORY = 'VICTORY';
+const GAME_OVER = 'GAME OVER';
 
 cc.Class({
     extends: cc.Component,
@@ -9,6 +11,7 @@ cc.Class({
         titleGroup: cc.Node,
 		gameGroup: cc.Node,
 		endGameGroup: cc.Node,
+		endGameTitle: cc.Label,
 		gameMenuAnim: cc.Animation,
 		_showGameMenu: {
 			default: false,
@@ -46,10 +49,17 @@ cc.Class({
 		}
 	},
 
-	onEndGame () {
+	onEndGame (victory) {
 		// Disable game group
 		this.gameGroup.active = false;
-		
+
+		if (victory) {
+			this.endGameTitle.string = VICTORY;
+		}
+		else {
+			this.endGameTitle.string = GAME_OVER;
+		}
+
 		// Enable end game group
 		this.endGameGroup.active = true;
 	},
@@ -72,6 +82,7 @@ cc.Class({
 
 		// Disable game group
 		this.gameGroup.active = true;
+		this.onEndGame(true);
 	},
 
 	onGameMenuToggle () {

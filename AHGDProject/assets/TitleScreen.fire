@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4352752816480614,
-      "y": 0.4352752816480614,
+      "x": 0.49064583333333334,
+      "y": 0.49064583333333334,
       "z": 1
     },
     "_quat": {
@@ -2772,7 +2772,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "GameOverScreen",
+    "_name": "EndGameScreen",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -4406,6 +4406,9 @@
     },
     "endGameGroup": {
       "__id__": 66
+    },
+    "endGameTitle": {
+      "__id__": 71
     },
     "gameMenuAnim": {
       "__id__": 64
