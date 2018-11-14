@@ -96,8 +96,9 @@ cc.Class({
 	},
 	
 	attack() {
-		// Do the attack here!
-		//console.log("Attack!");
+		// CBO - Please fix this!
+		cc.find("GameManager").getComponent("GameManager").takeDamage();
+
 		this.start_attack();
 	},
 

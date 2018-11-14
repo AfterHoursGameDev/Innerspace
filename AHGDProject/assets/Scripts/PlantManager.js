@@ -1,14 +1,7 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+// PlantManager.js
 
 var PlantSpawnPoint = require("PlantSpawnPoint");
+var GameManager = require("GameManager");
 
 cc.Class({
 
@@ -20,9 +13,11 @@ cc.Class({
         nextSpawnTime: 0,
         plantPrefab: {default: null, type: cc.Prefab},
         spawnPoints: {default: [], type: PlantSpawnPoint},
+        gameManager: {default: null, type: GameManager},
     },
 
     timer: 0.0,
+    
 
     onLoad() {
         this.node.on('plantHarvested', function(event) {
@@ -78,8 +73,7 @@ cc.Class({
     },
 
     onPlantHarvested(event) {
-        // TODO - do something with harvested plant
-        console.log("Plant harvested!");
+        this.gameManager.harvestPlant();
     },
 
     getRandom(min, max) {
