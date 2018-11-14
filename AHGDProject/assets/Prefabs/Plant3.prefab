@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Plant",
+    "_name": "Plant3",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -99,7 +99,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4f8b5c2d-8412-4c40-9f19-6d8d59886d26"
+      "__uuid__": "eb2a7f77-0b7f-4c98-a273-3f2033d50463"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -125,11 +125,11 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "a17b8df4-7b49-40bb-bd03-4478c03e39fc"
+      "__uuid__": "ab8d48ac-2859-46cd-8ff9-0126b85eba99"
     },
     "_clips": [
       {
-        "__uuid__": "a17b8df4-7b49-40bb-bd03-4478c03e39fc"
+        "__uuid__": "ab8d48ac-2859-46cd-8ff9-0126b85eba99"
       }
     ],
     "playOnLoad": true,
@@ -141,7 +141,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "dab57364-1aad-4ee4-8483-a6a76c9d469d"
+      "__uuid__": "15f4e459-231d-48b1-a179-ee1a2012f6bb"
     },
     "fileId": "8bxXhAbPxN5ahA5la0YL+P",
     "sync": false

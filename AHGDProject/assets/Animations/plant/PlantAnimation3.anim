@@ -1,0 +1,67 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "PlantAnimation3",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 16,
+  "sample": 1,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "eb2a7f77-0b7f-4c98-a273-3f2033d50463"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "563ef85e-cd6d-4ff9-8648-92746dcc7585"
+            }
+          },
+          {
+            "frame": 6,
+            "value": {
+              "__uuid__": "7f33de35-96b2-419f-9517-dfe095db5f90"
+            }
+          },
+          {
+            "frame": 9,
+            "value": {
+              "__uuid__": "93c73605-7136-4842-9a5f-a1faacf73015"
+            }
+          },
+          {
+            "frame": 15,
+            "value": {
+              "__uuid__": "eba89a1a-4a6c-48ef-8f9a-b3cb7cfaeda8"
+            }
+          }
+        ]
+      },
+      "Plant": {
+        "state": [
+          {
+            "frame": 0,
+            "value": 0,
+            "curve": "constant"
+          },
+          {
+            "frame": 9,
+            "value": 1,
+            "curve": "constant"
+          },
+          {
+            "frame": 15,
+            "value": 2
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

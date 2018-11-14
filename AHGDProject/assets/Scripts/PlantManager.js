@@ -12,6 +12,8 @@ cc.Class({
         spawnTimeMax: 8,
         nextSpawnTime: 0,
         plantPrefab: {default: null, type: cc.Prefab},
+        plantPrefab2: {default: null, type: cc.Prefab},
+        plantPrefab3: {default: null, type: cc.Prefab},
         spawnPoints: {default: [], type: PlantSpawnPoint},
         gameManager: {default: null, type: GameManager},
     },
@@ -67,7 +69,20 @@ cc.Class({
     },
 
     spawnPlantAtIndex(idx) {
-        var plantNode = cc.instantiate(this.plantPrefab);
+        var plantNode;
+		switch(Math.floor(Math.random() * 3))
+		{
+			case 0:
+			default:
+				plantNode = cc.instantiate(this.plantPrefab);
+				break;
+			case 1:
+				plantNode = cc.instantiate(this.plantPrefab2);
+				break;
+			case 2:
+				plantNode = cc.instantiate(this.plantPrefab3);
+				break;
+		}
         var plantSpawn = this.spawnPoints[idx];
         plantSpawn.assignSpawnedPlant(plantNode);
     },
