@@ -62,7 +62,7 @@ cc.Class({
             }
             else
             {
-                this.spawnPlantAtIndex(spawnIndex);
+				this.spawnPlantAtIndex(spawnIndex);
                 break;
             }
         }
@@ -88,7 +88,7 @@ cc.Class({
     },
 
     onPlantHarvested(event) {
-        this.gameManager.harvestPlant();
+        this.gameManager.harvestPlant(event.plantType);
     },
 
     getRandom(min, max) {

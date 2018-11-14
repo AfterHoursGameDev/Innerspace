@@ -12,6 +12,7 @@ cc.Class({
 
     properties: {
         state: { default: PlantState.Growing, type: PlantState },
+		plantType: 1, // 1, 2, 3 for plant1 to plant3
     },
 
     onLoad () {
@@ -42,6 +43,7 @@ cc.Class({
 
         var event = new cc.Event.EventCustom('plantHarvested', true);
         event.mature = wasMature;
+		event.plantType = this.plantType;
         this.node.dispatchEvent(event);
         this.node.destroy();
     },

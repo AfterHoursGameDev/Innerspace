@@ -9,6 +9,7 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 var Astronaut = require("Astronaut");
+var GameManager = require("GameManager");
 
 cc.Class({
     extends: cc.Component,
@@ -31,6 +32,7 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        gameManager: {default: null, type: GameManager},
     },
 
 	// Privates
@@ -46,7 +48,6 @@ cc.Class({
 	},
 
     start () {
-
     },
 	
 	fire_bullet()
@@ -55,12 +56,17 @@ cc.Class({
 		
 		// Move astronaut
 		this.astronaut.changeTrack(this.node);
-		
-        var scene = cc.director.getScene();
-        var bullet = cc.instantiate(this.bullet);
-        bullet.position = cc.v2(25, 0);
-        this.node.addChild(bullet);
-        bullet.active = true;
+			
+		if (this.gameManager.canFireBullet())
+		{
+			var scene = cc.director.getScene();
+			var bullet = cc.instantiate(this.bullet);
+			bullet.position = cc.v2(25, 0);
+			this.node.addChild(bullet);
+			bullet.active = true;
+			
+			this.gameManager.firedBullet();
+		}
 	},
 
     // update (dt) {},
