@@ -8,6 +8,7 @@ cc.Class({
     properties: {
         titleGroup: cc.Node,
 		gameGroup: cc.Node,
+		endGameGroup: cc.Node,
 		gameMenuAnim: cc.Animation,
 		_showGameMenu: {
 			default: false,
@@ -21,11 +22,10 @@ cc.Class({
 
 		// Disable game group
 		this.gameGroup.active = false;
+
+		// Disable end game group
+		this.endGameGroup.active = false;
 	},
-
-    start () {
-
-    },
 
 	onStartGame () {
 		console.log("Game starting");
@@ -44,6 +44,22 @@ cc.Class({
 			console.log("Game paused");
 			cc.director.pause();
 		}
+	},
+
+	onEndGame () {
+		// Disable game group
+		this.gameGroup.active = false;
+		
+		// Enable end game group
+		this.endGameGroup.active = true;
+	},
+
+	onRestartGame () {
+		// Disable end game group
+		this.endGameGroup.active = false;
+
+		console.log("Game restarting");
+		cc.game.restart();
 	},
 
 	onQuitGame () {
