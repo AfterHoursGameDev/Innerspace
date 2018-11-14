@@ -82,7 +82,6 @@ cc.Class({
 
 		// Disable game group
 		this.gameGroup.active = true;
-		this.onEndGame(true);
 	},
 
 	onGameMenuToggle () {
