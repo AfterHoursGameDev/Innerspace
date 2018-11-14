@@ -68,7 +68,7 @@ cc.Class({
 		this.node.on("died", this.died, this);
 		this.sprite = this.node.getComponent(cc.Sprite);
 		
-		this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event) {
+		this.node.on(cc.Node.EventType.TOUCH_END,function(event) {
 			this.fire_at(event);
         }, this);
 	},

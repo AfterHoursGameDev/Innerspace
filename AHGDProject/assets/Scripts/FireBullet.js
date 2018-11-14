@@ -40,7 +40,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event){
+        this.node.on(cc.Node.EventType.TOUCH_END,function(event){
             //console.log("mouse down event detected in lane");
 			this.fire_bullet();
 			event.stopPropagation();

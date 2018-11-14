@@ -16,7 +16,7 @@ cc.Class({
     },
 
     onLoad () {
-        this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event) {
+        this.node.on(cc.Node.EventType.TOUCH_END,function(event) {
             this.onClicked(event);
         }, this);
     },
