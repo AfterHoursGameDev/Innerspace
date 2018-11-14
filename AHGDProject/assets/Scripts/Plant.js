@@ -27,30 +27,22 @@ cc.Class({
                 didAcceptClick = false;
                 break;
             case PlantState.Mature:
-                this.harvestMaturePlant();
+                this.harvestPlant(true);
                 break;
             case PlantState.Dead:
-                this.harvestDeadPlant();
+                this.harvestPlant(false);
                 break;
-        }
+        } 
         if (didAcceptClick) {
             event.stopPropagation();
         }
     },
 
-    harvestMaturePlant() {
-        console.log("Harvesting mature plant.");
-        // TODO - Report harvest to PlantManager
-        this.destroyPlant();
-    },
+    harvestPlant(wasMature) {
 
-    harvestDeadPlant() {
-        console.log("Harvesting dead plant.");
-        this.destroyPlant();
-    },
-
-    destroyPlant() {
-        // TODO - Report to PlantSpawnPoint that the plant has been destroyed
+        var event = new cc.Event.EventCustom('plantHarvested', true);
+        event.mature = wasMature;
+        this.node.dispatchEvent(event);
         this.node.destroy();
     },
 });

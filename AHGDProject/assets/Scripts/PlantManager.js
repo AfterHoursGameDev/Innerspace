@@ -24,9 +24,14 @@ cc.Class({
 
     timer: 0.0,
 
+    onLoad() {
+        this.node.on('plantHarvested', function(event) {
+            this.onPlantHarvested(event);
+        }, this);
+    },
+
     start () {
         this.resetSpawnTimer();
-        this.setSpawnTime();
     },
 
     update (dt) {
@@ -34,18 +39,13 @@ cc.Class({
         if (this.timer >= this.nextSpawnTime)
         {
             this.resetSpawnTimer();
-            this.setSpawnTime();
             this.trySpawnPlant();
         }
     },
 
     resetSpawnTimer () {
         this.timer = 0.0;
-    },
-
-    setSpawnTime() {
         this.nextSpawnTime = this.getRandom(this.spawnTimeMin, this.spawnTimeMax);
-        console.log("Next Spawn Time: %s", this.nextSpawnTime );
     },
 
     trySpawnPlant() {
@@ -54,7 +54,6 @@ cc.Class({
 
         for (var i = 0; i < maxIdx + 1; i++)
         {
-            console.log("Trying Spawn Index: %s", spawnIndex );
             // If we already have a plant here, get the next index and try again
             if (this.spawnPoints[spawnIndex].hasActivePlant)
             {
@@ -75,13 +74,12 @@ cc.Class({
     spawnPlantAtIndex(idx) {
         var plantNode = cc.instantiate(this.plantPrefab);
         var plantSpawn = this.spawnPoints[idx];
-
-        // CBO TODO - move this logic into assignSpawnedPlant
-        plantNode.parent = plantSpawn.node;
         plantSpawn.assignSpawnedPlant(plantNode);
-        plantSpawn.pos = cc.v2(0, 0);
+    },
 
-        console.log("Spawned Plant at Index: %s", idx );
+    onPlantHarvested(event) {
+        // TODO - do something with harvested plant
+        console.log("Plant harvested!");
     },
 
     getRandom(min, max) {
