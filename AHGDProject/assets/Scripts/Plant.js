@@ -16,15 +16,15 @@ cc.Class({
 
     onLoad () {
         this.node.on(cc.Node.EventType.MOUSE_DOWN,function(event) {
-            this.onClicked();
+            this.onClicked(event);
         }, this);
     },
 
-    onClicked() {       
-        // TODO - prevent event propogation upon harvest?
+    onClicked(event) {       
+        var didAcceptClick = true;
         switch (this.state) {
             case PlantState.Growing:
-                console.log("Plant still growing, no effect.");
+                didAcceptClick = false;
                 break;
             case PlantState.Mature:
                 this.harvestMaturePlant();
@@ -32,6 +32,9 @@ cc.Class({
             case PlantState.Dead:
                 this.harvestDeadPlant();
                 break;
+        }
+        if (didAcceptClick) {
+            event.stopPropagation();
         }
     },
 
