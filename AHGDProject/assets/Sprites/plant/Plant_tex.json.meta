@@ -1,0 +1,7 @@
+{
+  "ver": "1.0.0",
+  "uuid": "dda7ae6f-7d40-4e0b-a1aa-656ef1975bd7",
+  "atlasJson": "{\"width\":512,\"imagePath\":\"Plant_tex.png\",\"height\":512,\"name\":\"Plant\",\"SubTexture\":[{\"width\":406,\"y\":1,\"height\":473,\"name\":\"plant_0\",\"x\":1}]}",
+  "texture": "433d4c9a-c078-4a41-a88a-9c686dce7a66",
+  "subMetas": {}
+}
