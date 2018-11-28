@@ -49,6 +49,18 @@ cc.Class({
 		}
 	},
 
+	onShareGame () {
+		// if (typeof FBInstant === 'undefined') return;
+		// FBInstant.shareAsync({
+			// intent: 'SHARE',
+			// image: this.getImgBase64(),
+			// text: 'X is asking for your help!',
+			// data: {myReplayData: '...'},
+		// }).then(() => {
+			// // continue with the game.
+		// });
+	},
+
 	onEndGame (victory) {
 		// Disable game group
 		this.gameGroup.active = false;
@@ -75,6 +87,10 @@ cc.Class({
 	onQuitGame () {
 		console.log("Game quitting");
 		cc.game.end();
+
+		if (typeof FBInstant !== 'undefined') {
+			FBInstant.quit();
+		}
 	},
 
 	_onStartedGame () {
