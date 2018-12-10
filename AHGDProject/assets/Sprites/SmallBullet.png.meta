@@ -1,10 +1,11 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "750d7514-d4a0-451c-a2eb-de33d7fe7593",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "point",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "SmallBullet": {
       "ver": "1.0.3",
