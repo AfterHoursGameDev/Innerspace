@@ -8,12 +8,11 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "asyncLoadAssets": false,
-    "readonly": false
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "Plant_Hops",
+    "_name": "Plant3",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -63,6 +62,8 @@
       "y": 0.25,
       "z": 1
     },
+    "_rotationX": 0,
+    "_rotationY": 0,
     "_quat": {
       "__type__": "cc.Quat",
       "x": 0,
@@ -73,10 +74,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "_is3DNode": false,
     "groupIndex": 0,
-    "_rotationX": 0,
-    "_rotationY": 0,
     "_id": ""
   },
   {
@@ -88,7 +86,7 @@
     },
     "_enabled": true,
     "state": 0,
-    "plantType": 1,
+    "plantType": 3,
     "_id": ""
   },
   {
@@ -102,7 +100,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "d11fa817-ffea-4ec9-9a6b-cf3ba7b62923"
+      "__uuid__": "eb2a7f77-0b7f-4c98-a273-3f2033d50463"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -128,11 +126,11 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "63ecb01c-d9e4-4828-9059-a2ffc84a8b5f"
+      "__uuid__": "ab8d48ac-2859-46cd-8ff9-0126b85eba99"
     },
     "_clips": [
       {
-        "__uuid__": "63ecb01c-d9e4-4828-9059-a2ffc84a8b5f"
+        "__uuid__": "ab8d48ac-2859-46cd-8ff9-0126b85eba99"
       }
     ],
     "playOnLoad": true,
@@ -144,7 +142,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "c1d92304-dea6-4237-9411-b9bd60144039"
+      "__uuid__": "15f4e459-231d-48b1-a179-ee1a2012f6bb"
     },
     "fileId": "8bxXhAbPxN5ahA5la0YL+P",
     "sync": false

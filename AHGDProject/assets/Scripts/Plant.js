@@ -7,20 +7,12 @@ PlantState = cc.Enum({
     Dead: 2,
 });
 
-var PlantType;
-PlantType = cc.Enum({
-  Barley: 0,
-  Hops: 1,
-  Rye: 2,
-  Fruit: 3,
-});
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
         state: { default: PlantState.Growing, type: PlantState },
-	      plantType: {default: PlantType.Barley, type: PlantType },
+		plantType: 1, // 1, 2, 3 for plant1 to plant3
     },
 
     onLoad () {
@@ -29,7 +21,7 @@ cc.Class({
         }, this);
     },
 
-    onClicked(event) {
+    onClicked(event) {       
         var didAcceptClick = true;
         switch (this.state) {
             case PlantState.Growing:
@@ -41,7 +33,7 @@ cc.Class({
             case PlantState.Dead:
                 this.harvestPlant(false);
                 break;
-        }
+        } 
         if (didAcceptClick) {
             event.stopPropagation();
         }

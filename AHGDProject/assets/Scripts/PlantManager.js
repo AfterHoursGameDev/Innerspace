@@ -11,13 +11,15 @@ cc.Class({
         spawnTimeMin: 1,
         spawnTimeMax: 8,
         nextSpawnTime: 0,
-        plantPrefabs: {default: [], type: cc.Prefab},
+        plantPrefab: {default: null, type: cc.Prefab},
+        plantPrefab2: {default: null, type: cc.Prefab},
+        plantPrefab3: {default: null, type: cc.Prefab},
         spawnPoints: {default: [], type: PlantSpawnPoint},
         gameManager: {default: null, type: GameManager},
     },
 
     timer: 0.0,
-
+    
 
     onLoad() {
         this.node.on('plantHarvested', function(event) {
@@ -67,8 +69,20 @@ cc.Class({
     },
 
     spawnPlantAtIndex(idx) {
-        var randIdx = Math.floor(Math.random() * 4);
-        var plantNode = cc.instantiate(this.plantPrefabs[randIdx]);
+        var plantNode;
+		switch(Math.floor(Math.random() * 3))
+		{
+			case 0:
+			default:
+				plantNode = cc.instantiate(this.plantPrefab);
+				break;
+			case 1:
+				plantNode = cc.instantiate(this.plantPrefab2);
+				break;
+			case 2:
+				plantNode = cc.instantiate(this.plantPrefab3);
+				break;
+		}
         var plantSpawn = this.spawnPoints[idx];
         plantSpawn.assignSpawnedPlant(plantNode);
     },

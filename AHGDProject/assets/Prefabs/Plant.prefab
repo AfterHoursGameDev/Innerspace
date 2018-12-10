@@ -8,12 +8,11 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "asyncLoadAssets": false,
-    "readonly": false
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "Plant_Barley",
+    "_name": "Plant",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -63,6 +62,8 @@
       "y": 0.25,
       "z": 1
     },
+    "_rotationX": 0,
+    "_rotationY": 0,
     "_quat": {
       "__type__": "cc.Quat",
       "x": 0,
@@ -73,10 +74,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "_is3DNode": false,
     "groupIndex": 0,
-    "_rotationX": 0,
-    "_rotationY": 0,
     "_id": ""
   },
   {
@@ -88,7 +86,6 @@
     },
     "_enabled": true,
     "state": 0,
-    "plantType": 0,
     "_id": ""
   },
   {
