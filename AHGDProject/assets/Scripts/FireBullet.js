@@ -33,21 +33,38 @@ cc.Class({
         //     }
         // },
         gameManager: {default: null, type: GameManager},
+		fireRate: 0.05,
     },
 
 	// Privates
+	fireTime: 0.0,
+	isFiring: false,
 	
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        this.node.on(cc.Node.EventType.TOUCH_START,function(event){
+            //console.log("mouse down event detected in lane");
+			this.timeToFire=0;
+			this.isFiring = true;
+			event.stopPropagation();
+        }, this);
         this.node.on(cc.Node.EventType.TOUCH_END,function(event){
             //console.log("mouse down event detected in lane");
-			this.fire_bullet();
+			this.timeToFire = 0;
+			this.isFiring = false;
+			event.stopPropagation();
+        }, this);
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL,function(event){
+            //console.log("mouse down event detected in lane");
+			this.timeToFire = 0;
+			this.isFiring = false;
 			event.stopPropagation();
         }, this);
 	},
 
     start () {
+		this.fireTime = 0;
     },
 	
 	fire_bullet()
@@ -69,5 +86,22 @@ cc.Class({
 		}
 	},
 
-    // update (dt) {},
+    update (dt) {
+		if (this.isFiring) {
+			if (this.gameManager.canFireBullet())
+			{
+				this.fireTime += dt;
+				if (this.fireTime >= this.fireRate) {
+					this.fireTime -= this.fireRate;
+					this.fire_bullet();
+				}
+			} else {
+				// Abort any attempts to fire?
+				this.fireTime = 0;
+				this.isFiring = false;
+				// Cannot fire! But can move.
+				this.astronaut.changeTrack(this.node);
+			}
+		}
+	},
 });

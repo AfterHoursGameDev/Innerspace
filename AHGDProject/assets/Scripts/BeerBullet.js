@@ -66,7 +66,7 @@ cc.Class({
 			var health = target.getComponent("Health");
 			if (health) 
 			{
-				if (health.health > 0)
+				if (health.health >= 0)
 				{
 					// Is it at the right place?
 					if (right >= (target.position.x - target.getContentSize().width/2))
