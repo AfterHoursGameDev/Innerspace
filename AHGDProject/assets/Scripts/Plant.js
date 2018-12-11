@@ -1,26 +1,14 @@
 // Plant.js
 
-var PlantState;
-PlantState = cc.Enum({
-    Growing: 0,
-    Mature: 1,
-    Dead: 2,
-});
-
-var PlantType;
-PlantType = cc.Enum({
-  Barley: 0,
-  Hops: 1,
-  Rye: 2,
-  Fruit: 3,
-});
+var PlantState = require("PlantState");
+var PlantType = require("PlantType");
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
         state: { default: PlantState.Growing, type: PlantState },
-	      plantType: {default: PlantType.Barley, type: PlantType },
+        plantType: {default: PlantType.Barley, type: PlantType },
     },
 
     onLoad () {

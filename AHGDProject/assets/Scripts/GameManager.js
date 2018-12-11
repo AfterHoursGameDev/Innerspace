@@ -52,25 +52,25 @@ cc.Class({
 		this.plant3Bar.progress = this.plantLevels[2] / this.requiredPlants;
 	},
 
-    // CBO - currently called from PlantManager.onPlantHarvested
-  harvestPlant(plantType) {
-		if ((plantType >= 0) && (plantType <= 2)) {
-			this.plantLevels[plantType]++;
-			if (this.plantLevels[plantType] >= this.requiredPlants) {
-				this.plantLevels[plantType] = 0;
-				this.currentResources = this.currentResources + this.rewardPerRecipe;
-				if (this.currentResources > this.requiredResources) {
-					this.currentResources = this.requiredResources;
-				}
-			}
-		}
-		this.updateFuelBar();
-  },
+        // CBO - currently called from PlantManager.onPlantHarvested
+    harvestPlant(plantType) {
+    	if ((plantType >= 0) && (plantType <= 2)) {
+    		this.plantLevels[plantType]++;
+    		if (this.plantLevels[plantType] >= this.requiredPlants) {
+    			this.plantLevels[plantType] = 0;
+    			this.currentResources = this.currentResources + this.rewardPerRecipe;
+    			if (this.currentResources > this.requiredResources) {
+    				this.currentResources = this.requiredResources;
+    			}
+    		}
+    	}
+    	this.updateFuelBar();
+    },
 
-  // CBO - currently called from Alien.attach()
-  takeDamage(event) {
-        this.currentHealth = this.currentHealth - 1;
-  },
+      // CBO - currently called from Alien.attach()
+      takeDamage(event) {
+            this.currentHealth = this.currentHealth - 1;
+      },
 
 	canFireBullet()
 	{
