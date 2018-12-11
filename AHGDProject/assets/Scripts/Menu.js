@@ -4,6 +4,8 @@ const HIDE_MENU = 'hideMenu';
 const VICTORY = 'VICTORY';
 const GAME_OVER = 'GAME OVER';
 
+var ScoringManager = require("ScoringManager");
+
 cc.Class({
     extends: cc.Component,
 
@@ -13,11 +15,16 @@ cc.Class({
 		endGameGroup: cc.Node,
 		endGameTitle: cc.Label,
 		gameMenuAnim: cc.Animation,
+		scoringManager: ScoringManager,
 		_showGameMenu: {
 			default: false,
 			visible: false,
 		},
     },
+
+	getScoringManager(){
+		return this.scoringManager;
+	},
 
     onLoad () {
 		// Persist the title screen
