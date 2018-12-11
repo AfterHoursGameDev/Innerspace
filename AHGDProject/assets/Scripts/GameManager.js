@@ -1,5 +1,7 @@
 // GameManager.js
 
+var ScoringManager = require("ScoringManager");
+
 cc.Class({
     extends: cc.Component,
 
@@ -19,6 +21,8 @@ cc.Class({
 
     currentHealth: 0,
 
+	scoringManager: null,
+
     start () {
         this.currentHealth = this.startingHealth;
         this.currentResources = this.startingResources;
@@ -27,6 +31,7 @@ cc.Class({
 	      this.plantLevels[0] = 0;
 	      this.plantLevels[1] = 0;
 	      this.plantLevels[2] = 0;
+		  this.scoringManager = cc.find("UI_Menu").getComponent("Menu").getScoringManager();
     },
 
     update (dt) {
@@ -63,6 +68,7 @@ cc.Class({
     				this.currentResources = this.requiredResources;
     			}
     		}
+			this.scoringManager.addScore(10);
     	}
     	this.updateFuelBar();
     },

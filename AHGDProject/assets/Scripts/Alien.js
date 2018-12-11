@@ -73,7 +73,7 @@ cc.Class({
         }, this);
 	},
 
-    start () 
+    start ()
 	{
 		if (this.track != null) 
 		{
@@ -172,6 +172,8 @@ cc.Class({
 				this.dying_time += dt;
 				if (this.dying_time >= 2.0)
 				{
+					cc.find("UI_Menu").getComponent("Menu").getScoringManager().addScore(50);
+
 					// Dead for good!
 					this.node.destroy();
 				}
