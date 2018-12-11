@@ -68,8 +68,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7169776240079135,
-      "y": 0.7169776240079135,
+      "x": 0.48133333333333334,
+      "y": 0.48133333333333334,
       "z": 1
     },
     "_quat": {
@@ -3694,15 +3694,20 @@
     "spawnTimeMin": 1,
     "spawnTimeMax": 8,
     "nextSpawnTime": 0,
-    "plantPrefab": {
-      "__uuid__": "dab57364-1aad-4ee4-8483-a6a76c9d469d"
-    },
-    "plantPrefab2": {
-      "__uuid__": "c1d92304-dea6-4237-9411-b9bd60144039"
-    },
-    "plantPrefab3": {
-      "__uuid__": "15f4e459-231d-48b1-a179-ee1a2012f6bb"
-    },
+    "plantPrefabs": [
+      {
+        "__uuid__": "dab57364-1aad-4ee4-8483-a6a76c9d469d"
+      },
+      {
+        "__uuid__": "c1d92304-dea6-4237-9411-b9bd60144039"
+      },
+      {
+        "__uuid__": "15f4e459-231d-48b1-a179-ee1a2012f6bb"
+      },
+      {
+        "__uuid__": "dbcf8eba-d71b-47b6-b425-6f4d1ccb32ed"
+      }
+    ],
     "spawnPoints": [
       {
         "__id__": 94
