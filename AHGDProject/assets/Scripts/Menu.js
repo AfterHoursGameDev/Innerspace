@@ -81,11 +81,16 @@ cc.Class({
 
 		// Enable end game group
 		this.endGameGroup.active = true;
+		cc.director.pause();
 	},
 
 	onRestartGame () {
 		// Disable end game group
 		this.endGameGroup.active = false;
+
+		if (cc.director.isPaused()) {
+			cc.director.resume();
+		}
 
 		console.log("Game restarting");
 		cc.game.restart();
