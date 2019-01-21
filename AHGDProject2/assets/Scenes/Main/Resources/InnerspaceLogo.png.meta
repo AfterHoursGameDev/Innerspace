@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "71c4a46d-b2fe-455f-9b5e-738a525ddfa4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "InnerspaceLogo": {
+      "ver": "1.0.3",
+      "uuid": "36bba7cd-bc49-4dd1-8543-17da48e0870e",
+      "rawTextureUuid": "71c4a46d-b2fe-455f-9b5e-738a525ddfa4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 33,
+      "trimY": 3,
+      "width": 134,
+      "height": 135,
+      "rawWidth": 200,
+      "rawHeight": 141,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
