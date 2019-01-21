@@ -14,9 +14,9 @@ cc.Class({
   		rewardPerRecipe: 100.0,
   		startingResources: 300.0,
   		fuelBar: { default: null, type: cc.ProgressBar },
-  		plant1Bar: { default: null, type: cc.ProgressBar },
-  		plant2Bar: { default: null, type: cc.ProgressBar },
-  		plant3Bar: { default: null, type: cc.ProgressBar },
+  		//plant1Bar: { default: null, type: cc.ProgressBar },
+  		//plant2Bar: { default: null, type: cc.ProgressBar },
+  		//plant3Bar: { default: null, type: cc.ProgressBar },
     },
 
     currentHealth: 0,
@@ -31,7 +31,10 @@ cc.Class({
 	      this.plantLevels[0] = 0;
 	      this.plantLevels[1] = 0;
 	      this.plantLevels[2] = 0;
-		  this.scoringManager = cc.find("UI_Menu").getComponent("Menu").getScoringManager();
+		  if (cc.find("UI_Menu") != null)
+		  {
+		    this.scoringManager = cc.find("UI_Menu").getComponent("Menu").getScoringManager();
+		  }
     },
 
     update (dt) {
@@ -52,9 +55,9 @@ cc.Class({
 
 	updatePlantBars()
 	{
-		this.plant1Bar.progress = this.plantLevels[0] / this.requiredPlants;
-		this.plant2Bar.progress = this.plantLevels[1] / this.requiredPlants;
-		this.plant3Bar.progress = this.plantLevels[2] / this.requiredPlants;
+		//this.plant1Bar.progress = this.plantLevels[0] / this.requiredPlants;
+		//this.plant2Bar.progress = this.plantLevels[1] / this.requiredPlants;
+		//this.plant3Bar.progress = this.plantLevels[2] / this.requiredPlants;
 	},
 
         // CBO - currently called from PlantManager.onPlantHarvested
@@ -68,7 +71,10 @@ cc.Class({
     				this.currentResources = this.requiredResources;
     			}
     		}
-			this.scoringManager.addScore(10);
+			if (this.scoringManager)
+			{
+				this.scoringManager.addScore(10);
+			}
     	}
     	this.updateFuelBar();
     },

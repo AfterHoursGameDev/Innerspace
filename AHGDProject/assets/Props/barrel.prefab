@@ -12,22 +12,19 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Track1",
+    "_name": "barrel",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
-      },
-      {
-        "__id__": 3
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 3
     },
     "_opacity": 255,
     "_color": {
@@ -39,24 +36,24 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1000,
-      "height": 71
+      "width": 50,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 0.5,
       "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 417,
-      "y": 342,
+      "x": 367,
+      "y": 704,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_rotationX": 0,
@@ -81,14 +78,14 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": false,
+    "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "97983b0c-4053-4209-81b3-a8d0aac7a675"
+      "__uuid__": "5abf19c7-b9ba-4842-b86a-39098ff3ee1b"
     },
-    "_type": 1,
-    "_sizeMode": 0,
+    "_type": 0,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -103,28 +100,14 @@
     "_id": ""
   },
   {
-    "__type__": "9d254e5a5RGH5YuFPTZG8Hu",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "bullet": null,
-    "astronaut": null,
-    "gameManager": null,
-    "fireRate": 0.05,
-    "_id": ""
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "26525197-2698-4e82-a012-52072327ed86"
+      "__id__": 0
     },
-    "fileId": "93Xjl0G7tAPa6R24qDKAip",
+    "fileId": "8brvqwtMNC5Lp7sGZZLd5h",
     "sync": false
   }
 ]

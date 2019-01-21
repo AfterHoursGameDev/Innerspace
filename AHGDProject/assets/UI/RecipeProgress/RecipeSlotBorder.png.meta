@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "7c1b7f40-4965-4906-8393-40b24e4ce292",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "RecipeSlotBorder": {
+      "ver": "1.0.3",
+      "uuid": "bb354903-3aa9-4907-aba8-b3630efe97b0",
+      "rawTextureUuid": "7c1b7f40-4965-4906-8393-40b24e4ce292",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 300,
+      "height": 128,
+      "rawWidth": 300,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

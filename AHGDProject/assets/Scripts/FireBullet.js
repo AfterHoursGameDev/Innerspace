@@ -53,20 +53,23 @@ cc.Class({
             //console.log("mouse down event detected in lane");
 			this.timeToFire = 0;
 			this.isFiring = false;
-			event.stopPropagation();
         }, this);
         this.node.on(cc.Node.EventType.TOUCH_CANCEL,function(event){
             //console.log("mouse down event detected in lane");
 			this.timeToFire = 0;
 			this.isFiring = false;
-			event.stopPropagation();
+        }, this);
+        this.node.on(cc.Node.EventType.MOUSE_LEAVE,function(event){
+            //console.log("mouse down event detected in lane");
+			this.timeToFire = 0;
+			this.isFiring = false;
         }, this);
 	},
 
     start () {
 		this.fireTime = 0;
     },
-	
+
 	fire_bullet()
 	{
 		//console.log("Firing bullet");
