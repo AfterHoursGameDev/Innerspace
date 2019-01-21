@@ -33,10 +33,12 @@ cc.Class({
 		Tokens: { default: [], type: cc.Sprite },
 		IngredientTypes: { default: [], type: cc.SpriteFrame },
 		PickedType: { default: null, type: cc.SpriteFrame },
+		BeerBottleLiquid: { default: null, type: cc.Node },
 		
 		PlantCount: 2,
 		Score: 0,
 		MaxClickDistance: 50,
+		SetsRequired: 5,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -49,6 +51,7 @@ cc.Class({
 
 
 	lastToken: null,
+	SetsCompleted: 0,
 	
 	onLoad : function()
 	{
@@ -68,12 +71,29 @@ cc.Class({
     },
 
     start () {
+		this.SetsCompleted = 0;
 		this.UpdateScore();
+		this.ResetBoard();
     },
 
+	AreAnyPlotsAvailable()
+	{
+		for (var i=0; i<this.Tokens.length; i++)
+		{
+			var token = this.Tokens[i];
+			if (token.spriteFrame == this.PickedType)
+			{
+				// At least one plot found to fill
+				return true;
+			}
+		}
+		// No plots found
+		return false;
+	},
+	
 	PlantPressed()
 	{
-		if (this.PlantCount > 0)
+		if ((this.PlantCount > 0) && (this.AreAnyPlotsAvailable()))
 		{
 			this.PlantCount--;
 			this.UpdatePlantCount();
@@ -113,6 +133,27 @@ cc.Class({
 		}
 		return false;
 	},
+
+	ResetBeer()
+	{
+		this.SetsCompleted = 0;
+		var liquid = this.BeerBottleLiquid;
+		liquid.scale = cc.v2(1, 0);
+		var ratio = ((this.SetsRequired - this.SetsCompleted) / this.SetsRequired);
+		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+	},
+	
+	ResetBoard()
+	{
+		for (var i=0; i<this.Tokens.length; i++)
+		{
+			var token = this.Tokens[i];
+			token.spriteFrame = this.PickedType;
+		}
+		this.PlantNewPlants();
+		
+		this.ResetBeer();
+	},
 	
 	ClearSelected()
 	{
@@ -129,7 +170,7 @@ cc.Class({
 	
 	SelectToken(token)
 	{
-		if ((token != null) && (this.IsAdjacentTokenToLast(token)))
+		if ((token != null) && (this.IsAdjacentTokenToLast(token)) && (token.spriteFrame != this.PickedType))
 		{
 			this.SelectedTokens.push(token);
 			this.lastToken = token;
@@ -208,12 +249,111 @@ cc.Class({
 		}
 	},
 	
+	ShakeSelected()
+	{
+		for (var i=0; i<this.SelectedTokens.length; i++)
+		{
+			var token = this.SelectedTokens[i];
+			var pos = token.node.position;
+			token.node.position = cc.v2(pos.x-10, pos.y);
+			var posEnd = pos;
+			var action = new cc.moveTo(0.2, posEnd);
+			action.easing(cc.easeBackInOut(0.1));
+			token.node.runAction(action);
+		}
+	},
+	
+	IsValidSetSelected()
+	{
+		// Must have 4 tokens!
+		if (this.SelectedTokens.length != 4)
+		{
+			return false;
+		}
+		var found = [false, false, false, false];
+		var foundCount = 0;
+		for (var i=0; i<4; i++)
+		{
+			var token = this.SelectedTokens[i];
+			for (var j=0; j<4; j++)
+			{
+				if ((token.spriteFrame == this.IngredientTypes[j]) && (found[j] == false))
+				{
+					found[j] = true;
+					foundCount++;
+				}
+			}
+		}
+		if (foundCount == 4)
+		{
+			// Found 4 different types, cool, that's a match
+			return true;
+		}
+
+		// Something other, bad
+		return false;
+	},
+	
+	PickSelectedPlants()
+	{
+		for (var i=0; i<this.SelectedTokens.length; i++)
+		{
+			var token = this.SelectedTokens[i];
+			token.spriteFrame = this.PickedType;
+		}
+	},
+	
+	BeerCompleted()
+	{
+		this.SetsCompleted = 0;
+		//this.ResetBoard();
+		this.ResetBeer();
+		this.PlantCount += 2;
+		this.UpdatePlantCount();
+	},
+	
+	DrinkBeer()
+	{
+		// TBD
+		this.SetsCompleted++;
+		if (this.SetsCompleted >= this.SetsRequired)
+		{
+			this.BeerCompleted();
+		}
+		else
+		{
+			var liquid = this.BeerBottleLiquid;
+			var ratio = ((this.SetsRequired - this.SetsCompleted) / this.SetsRequired);
+			liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+		}
+	},
+	
+	ScorePoints(NumberPoints)
+	{
+		this.Score += NumberPoints;
+		this.UpdateScore();
+	},
+	
 	GridDragEnd(xy)
 	{
 		if (this.EffectType == null)
 		{
 			//console.log("Drag end.");
-			this.ClearSelected();
+			// Do we have a valid set?
+			if (this.IsValidSetSelected())
+			{
+				// No shake
+				// Replace chosen with picked
+				this.PickSelectedPlants();
+				this.ClearSelected();
+				this.DrinkBeer();
+				this.ScorePoints(1);
+			}
+			else
+			{
+				this.ShakeSelected();
+				this.ClearSelected();
+			}
 		}
 	},
 	
@@ -247,6 +387,8 @@ cc.Class({
 			if (token.spriteFrame == this.PickedType)
 			{
 				token.spriteFrame = this.IngredientTypes[Math.floor(Math.random() * 4)];
+				token.node.scale = cc.v2(0.1, 0.1);
+				token.node.runAction(new cc.scaleTo(0.5, 1));
 				this.NewPlantList.push(token);
 			}
 		}

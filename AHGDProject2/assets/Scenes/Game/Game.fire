@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6015282006622238,
-      "y": 0.6015282006622238,
+      "x": 0.6281944128890032,
+      "y": 0.6281944128890032,
       "z": 1
     },
     "_quat": {
@@ -287,7 +287,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "beerBottleGuage",
+    "_name": "BeerBottleGuage",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -355,7 +355,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "beerBottleLiquid",
+    "_name": "BeerBottleLiquid",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -380,7 +380,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 114,
-      "height": 220
+      "height": 240
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -444,7 +444,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "beerBottleLabel",
+    "_name": "BeerBottleLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -485,7 +485,7 @@
     "_scale": {
       "__type__": "cc.Vec3",
       "x": 1,
-      "y": 1,
+      "y": 1.13,
       "z": 1
     },
     "_rotationX": 0,
@@ -4034,9 +4034,13 @@
     "PickedType": {
       "__uuid__": "54f41ea8-a5b9-4a58-885e-e712b950617c"
     },
+    "BeerBottleLiquid": {
+      "__id__": 7
+    },
     "PlantCount": 2,
     "Score": 0,
     "MaxClickDistance": 50,
+    "SetsRequired": 5,
     "_id": "c9uug85QNNe5eTww18knrR"
   }
 ]
