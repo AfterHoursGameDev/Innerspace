@@ -34,8 +34,12 @@ cc.Class({
     // onLoad () {},
 
     start () {
-
     },
+	
+	PlayPressed()
+	{
+		cc.director.loadScene("Game");
+	},
 
     // update (dt) {},
 });

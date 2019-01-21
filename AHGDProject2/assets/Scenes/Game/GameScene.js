@@ -44,8 +44,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
     ctor: function () {
         this.SelectedTokens = [];
-		this.EffectType = null;
-		this.EffectTime = 0.0;
+		this.IsEffectActive = false;
 		this.NewPlantList = [];
     },
 
@@ -70,10 +69,18 @@ cc.Class({
         }, this);
     },
 
-    start () {
+    start () 
+	{
+		this.SolutionPaths = this.CalcSolutionPaths();
 		this.SetsCompleted = 0;
 		this.UpdateScore();
 		this.ResetBoard();
+		
+		// Make sure there is at least one solution at the start
+		while (!this.CheckForAnySets())
+		{
+			this.ResetBoard();
+		}
     },
 
 	AreAnyPlotsAvailable()
@@ -91,6 +98,27 @@ cc.Class({
 		return false;
 	},
 	
+	EndGame()
+	{
+		// Out of solutions! End game
+		this.IsEffectActive = true;
+		// Pause a second, then go on
+		setTimeout(function() {this.EndGameAfterPause();}.bind(this), 500);
+	},
+	
+	EndGameAfterPause()
+	{
+		this.ShrinkAllPlants();
+		// Pause another second, then go on
+		setTimeout(function() {this.EndGameAfterPause2();}.bind(this), 500);
+	},
+	
+	EndGameAfterPause2()
+	{
+		console.log("TBD: EndGame");
+		cc.director.loadScene("MainScene");
+	},
+	
 	PlantPressed()
 	{
 		if ((this.PlantCount > 0) && (this.AreAnyPlotsAvailable()))
@@ -98,6 +126,12 @@ cc.Class({
 			this.PlantCount--;
 			this.UpdatePlantCount();
 			this.PlantNewPlants();
+
+			// Did these new plants cause no solutions to be available?
+			if (!this.CheckForAnySets())
+			{
+				this.EndGame();
+			}
 		}
 		else
 		{
@@ -209,7 +243,7 @@ cc.Class({
 	
 	GridClicked(xy)
 	{
-		if (this.EffectType == null)
+		if (!this.IsEffectActive)
 		{
 			//console.log("x=" + xy.x + ", y=" + xy.y);
 			var closest = this.FindClosestToken(xy);
@@ -230,7 +264,7 @@ cc.Class({
 	
 	GridDragged(xy)
 	{
-		if (this.EffectType == null)
+		if (!this.IsEffectActive)
 		{
 			//console.log("x=" + xy.x + ", y=" + xy.y);
 			var closest = this.FindClosestToken(xy);
@@ -336,7 +370,7 @@ cc.Class({
 	
 	GridDragEnd(xy)
 	{
-		if (this.EffectType == null)
+		if (!this.IsEffectActive)
 		{
 			//console.log("Drag end.");
 			// Do we have a valid set?
@@ -348,6 +382,14 @@ cc.Class({
 				this.ClearSelected();
 				this.DrinkBeer();
 				this.ScorePoints(1);
+				
+				// That move was good, but are we out moves?  This
+				// occurs if we can no longer plant AND there are no
+				// more sets on the board.
+				if ((this.PlantCount==0) && (!this.CheckForAnySets()))
+				{
+					this.EndGame();
+				}
 			}
 			else
 			{
@@ -393,6 +435,121 @@ cc.Class({
 			}
 		}
 	},
+
+	CalcSolutionPaths()
+	{
+		var results = [];
+		
+		var p0, p1, p2, p3;
+		var dirs = [-1, 1, -5, 5];
+		var spots = [0, 0, 0, 0];
+		for (var i=0; i<25; i++)
+		{
+			spots[0] = i;
+			p0 = i;
+			for (var j=0; j<4; j++)
+			{
+				p1 = p0 + dirs[j];
+				spots[1] = p1;
+				for (var k=0; k<4; k++)
+				{
+					p2 = p1 + dirs[k];
+					spots[2] = p2;
+					for (var m=0; m<4; m++)
+					{
+						p3 = p2 + dirs[m];
+						spots[3] = p3;
+						
+						// Is this a valid position?
+						var valid = true;
+						for (var n=0; n<4; n++)
+						{
+							// Invalid if the spot is off the board
+							if ((spots[n] < 0) || (spots[n] >= 25))
+							{
+								// Went off the board, e.g. [3, 2, -3, -4] <-- both -3 and -4 are off the board
+								valid = false;
+							}
+							// Invalid if the spot is repeated
+							for (var q=n+1; q<4; q++)
+							{
+								if (spots[n] == spots[q])
+								{
+									// Repeated a spot (e.g. [2, 3, 2, 1] <-- two 2's
+									valid = false;
+								}
+							}
+							// Invalid if the wrap around off the edge
+							if (n > 0) 
+							{
+								// Check for spots going left/right
+								if ((spots[n] == spots[n-1]+1) || (spots[n] == spots[n-1]-1))
+								{
+									if (Math.floor(spots[n]/5) != Math.floor(spots[n-1]/5))
+									{
+										// Wrapped around from one row to another (e.g. 4 -> 5, 5 -> 4 <-- 5 is row 1 left, 4 is row 0 right)
+										valid = false;
+									}
+								}
+							}
+						}
+						if (valid)
+						{
+							results.push(spots.slice());
+						}
+					}
+				}
+			}
+		}
+		return results;
+	},
 	
+	CheckForAnySets()
+	{
+		for (var n=0; n<this.SolutionPaths.length; n++)
+		{
+			var Path = this.SolutionPaths[n];
+			var Types = [false, false, false, false];
+			var NumTypesFound = 0;
+			for (var i=0; i<4; i++)
+			{
+				var Token = this.Tokens[Path[i]];
+				for (var j=0; j<4; j++)
+				{
+					if (Token.spriteFrame == this.IngredientTypes[j])
+					{
+						if (Types[j] == false)
+						{
+							Types[j] = true;
+							NumTypesFound++;
+						}
+					}
+				}
+				// If we found one set of 4 different ingredients, we are
+				// done and have at least one possible solution on the board
+				if (NumTypesFound == 4)
+				{
+					return true;
+				}
+			}
+		}
+		// Checked all paths (over 400 of them!) for a set. Never found one.
+		return false;
+	},
+	
+	ShrinkAllPlants()
+	{
+		for (var i=0; i<25; i++)
+		{
+			var token = this.Tokens[i];
+			if (token.spriteFrame != this.PickedType)
+			{
+				token.node.scale = cc.v2(1, 1);
+				token.node.runAction(new cc.scaleTo(0.5, 0.0));
+			}
+		}
+	},
+
+
     // update (dt) {},
 });
