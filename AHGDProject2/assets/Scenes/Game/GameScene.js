@@ -128,7 +128,26 @@ cc.Class({
 			this.PlantNewPlants();
 
 			// Did these new plants cause no solutions to be available?
-			if (!this.CheckForAnySets())
+			if ((!this.CheckForAnySets()) && (this.PlantCount == 0))
+			{
+				this.EndGame();
+			}
+		}
+		else if (this.PlantCount > 0)
+		{
+			// No spots available, replant fully
+			// Full replant!
+			for (var i=0; i<this.Tokens.length; i++)
+			{
+				var token = this.Tokens[i];
+				token.spriteFrame = this.PickedType;
+			}
+			this.PlantCount--;
+			this.UpdatePlantCount();
+			this.PlantNewPlants();
+
+			// Did these new plants cause no solutions to be available?
+			if ((!this.CheckForAnySets()) && (this.PlantCount == 0))
 			{
 				this.EndGame();
 			}
