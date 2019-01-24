@@ -190,10 +190,8 @@ cc.Class({
 	ResetBeer()
 	{
 		this.SetsCompleted = 0;
-		var liquid = this.BeerBottleLiquid;
-		liquid.scale = cc.v2(1, 0);
-		var ratio = ((this.SetsRequired - this.SetsCompleted) / this.SetsRequired);
-		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+		var liquid = this.BeerBottleLiquid.getComponent(cc.ProgressBar);
+		liquid.progress = 0;
 	},
 	
 	ResetBoard()
@@ -375,9 +373,9 @@ cc.Class({
 		}
 		else
 		{
-			var liquid = this.BeerBottleLiquid;
-			var ratio = ((this.SetsRequired - this.SetsCompleted) / this.SetsRequired);
-			liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+			var liquid = this.BeerBottleLiquid.getComponent(cc.ProgressBar);
+			var ratio = (this.SetsCompleted / this.SetsRequired);
+			liquid.progress = ratio;
 		}
 	},
 	
