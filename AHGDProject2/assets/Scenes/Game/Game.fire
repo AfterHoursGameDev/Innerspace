@@ -80,6 +80,9 @@
       },
       {
         "__id__": 96
+      },
+      {
+        "__id__": 97
       }
     ],
     "_prefab": null,
@@ -4351,5 +4354,15 @@
     "MaxClickDistance": 50,
     "SetsRequired": 5,
     "_id": "c9uug85QNNe5eTww18knrR"
+  },
+  {
+    "__type__": "5602fwzQo5H0pRmBjaAYaTU",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_id": "96eDFfNFhONa7XbhWc023w"
   }
 ]

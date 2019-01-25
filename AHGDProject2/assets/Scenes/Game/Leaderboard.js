@@ -34,18 +34,17 @@ cc.Class({
     // onLoad () {},
 
     start () {
-
+		this.getLeaderboard();
     },
 
     // update (dt) {},
 
 	updateLeaderboard (score) {
 		if (typeof FBInstant !== 'undefined') {
-			FBInstant
-			  .getLeaderboardAsync('my_awesome_leaderboard.' + context.getID())
+			FBInstant.getLeaderboardAsync('All Friends.' + FBInstant.context.getID())
 			  .then(leaderboard => {
 				console.log(leaderboard.getName());
-				return leaderboard.setScoreAsync(42, '{race: "elf", level: 3}');
+				return leaderboard.setScoreAsync(score);
 			  })
 			  .then(() => console.log('Score saved'))
 			  .catch(error => console.error(error));
@@ -54,8 +53,7 @@ cc.Class({
 
 	getLeaderboard () {
 		if (typeof FBInstant !== 'undefined') {
-			FBInstant
-			  .getLeaderboardAsync('my_awesome_leaderboard.' + FBInstant.context.getID())
+			FBInstant.getLeaderboardAsync('All Friends.' + FBInstant.context.getID())
 			  .then(leaderboard => leaderboard.getEntriesAsync(10, 0))
 			  .then(entries => {
 				for (var i = 0; i < entries.length; i++) {
@@ -71,8 +69,7 @@ cc.Class({
 
 	getLeaderboardForPlayer () {
 		if (typeof FBInstant !== 'undefined') {
-			FBInstant
-			  .getLeaderboardAsync('my_awesome_leaderboard.' + FBInstant.context.getID())
+			FBInstant.getLeaderboardAsync('All Friends.' + FBInstant.context.getID())
 			  .then(leaderboard => leaderboard.getPlayerEntryAsync())
 			  .then(entry => {
 				console.log(
