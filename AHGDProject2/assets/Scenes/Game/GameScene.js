@@ -115,7 +115,40 @@ cc.Class({
 	
 	EndGameAfterPause2()
 	{
-		console.log("TBD: EndGame");
+		if (typeof FBInstant !== 'undefined') 
+		{
+			FBInstant.getLeaderboardAsync("TopScores").then
+			(
+				leaderboard => 
+				{
+					console.log("retrieved leaderboard: " + leaderboard.getName());
+					return leaderboard.setScoreAsync(this.Score);
+				}
+			)
+			.then
+			(
+				() => {
+					console.log("Score saved: " + this.Score);
+					this.GotoMainScene();
+				}
+			)
+			.catch
+			(
+				error => 
+				{ 
+					console.error(error);
+					this.GotoMainScene();
+				}
+			)
+		}
+		else
+		{
+			this.GotoMainScene();
+		}
+	},
+	
+	GotoMainScene()
+	{
 		cc.director.loadScene("MainScene");
 	},
 	
