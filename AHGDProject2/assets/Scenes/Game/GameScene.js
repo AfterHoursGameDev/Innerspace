@@ -232,8 +232,10 @@ cc.Class({
 	ResetBeer()
 	{
 		this.SetsCompleted = 0;
-		var liquid = this.BeerBottleLiquid.getComponent(cc.ProgressBar);
-		liquid.progress = 0;
+		var liquid = this.BeerBottleLiquid;
+		liquid.scale = cc.v2(1, 0);
+		var ratio = ((this.SetsCompleted) / this.SetsRequired);
+		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
 	},
 	
 	ResetBoard()
@@ -395,14 +397,23 @@ cc.Class({
 			token.spriteFrame = this.PickedType;
 		}
 	},
-	
-	BeerCompleted()
+
+	BeerCompletedDoneAnim()
 	{
 		this.SetsCompleted = 0;
 		//this.ResetBoard();
 		this.ResetBeer();
 		this.PlantCount += 2;
 		this.UpdatePlantCount();
+	},
+	
+	BeerCompleted()
+	{
+		// Let the beer animate
+		var liquid = this.BeerBottleLiquid;
+		var ratio = ((this.SetsCompleted) / this.SetsRequired);
+		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+		setTimeout(function() {this.BeerCompletedDoneAnim();}.bind(this), 500);
 	},
 	
 	DrinkBeer()
@@ -415,9 +426,9 @@ cc.Class({
 		}
 		else
 		{
-			var liquid = this.BeerBottleLiquid.getComponent(cc.ProgressBar);
-			var ratio = (this.SetsCompleted / this.SetsRequired);
-			liquid.progress = ratio;
+			var liquid = this.BeerBottleLiquid;
+			var ratio = ((this.SetsCompleted) / this.SetsRequired);
+			liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
 		}
 	},
 	
