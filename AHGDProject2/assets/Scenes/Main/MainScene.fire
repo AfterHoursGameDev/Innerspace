@@ -101,6 +101,9 @@
       },
       {
         "__id__": 29
+      },
+      {
+        "__id__": 30
       }
     ],
     "_prefab": null,
@@ -251,9 +254,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 158,
+      "g": 158,
+      "b": 158,
       "a": 255
     },
     "_contentSize": {
@@ -1231,5 +1234,18 @@
     "_N$alphaThreshold": 0,
     "_N$inverted": false,
     "_id": "acYVce7RxFm5TPQH3xqQlA"
+  },
+  {
+    "__type__": "2d85feWxgBJRKVDgkTvMhhg",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "Music": {
+      "__uuid__": "2c0919db-0d4b-4a96-af5a-c22ef06122dc"
+    },
+    "_id": "7fv9hHBR9E54yaalpxOnNT"
   }
 ]
