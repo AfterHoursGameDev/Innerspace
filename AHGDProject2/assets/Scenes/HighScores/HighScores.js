@@ -30,6 +30,7 @@ cc.Class({
         //     }
         // },
 		ScoreLines: { default: [], type: ScoreLine },
+		ScoreLabel: { default: null, type: cc.Label },
     },
 	
 
@@ -38,6 +39,11 @@ cc.Class({
     // onLoad () {},
 
     start () {
+		if ((typeof window.GlobalData !== 'undefined') && (typeof window.GlobalData.Score !== 'undefined'))
+		{
+			this.ScoreLabel.string = "Score: " + window.GlobalData.Score;
+		}
+		
 		var myName = "---";
 		if (typeof FBInstant !== 'undefined') {
 			var myName = FBInstant.player.getName();
@@ -72,5 +78,10 @@ cc.Class({
 		}
     },
 
+	ExitPressed()
+	{
+		cc.director.loadScene("MainScene");
+	},
+	
     // update (dt) {},
 });

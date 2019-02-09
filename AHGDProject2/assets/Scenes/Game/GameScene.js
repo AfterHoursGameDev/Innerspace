@@ -115,6 +115,10 @@ cc.Class({
 	
 	EndGameAfterPause2()
 	{
+		if ((typeof window.GlobalData !== 'undefined') && (typeof window.GlobalData.Score !== 'undefined'))
+		{
+			window.GlobalData.Score = this.Score;
+		}
 		if (typeof FBInstant !== 'undefined') 
 		{
 			FBInstant.getLeaderboardAsync("TopScores").then
@@ -129,7 +133,7 @@ cc.Class({
 			(
 				() => {
 					console.log("Score saved: " + this.Score);
-					this.GotoMainScene();
+					this.GotoHighScores();
 				}
 			)
 			.catch
@@ -143,13 +147,18 @@ cc.Class({
 		}
 		else
 		{
-			this.GotoMainScene();
+			this.GotoHighScores();
 		}
 	},
 	
 	GotoMainScene()
 	{
 		cc.director.loadScene("MainScene");
+	},
+	
+	GotoHighScores()
+	{
+		cc.director.loadScene("HighScores");
 	},
 	
 	PlantPressed()
