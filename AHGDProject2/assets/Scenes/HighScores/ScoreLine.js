@@ -58,9 +58,9 @@ cc.Class({
 					cc.log("tex width: " + texture.width);
 					cc.log("tex height: " + texture.height);
 					this.iconSprite.spriteFrame = new cc.SpriteFrame(texture);
-					//this.iconSprite.node.setScale(36/texture.width); // resize to 36x36
-					this.iconSprite.node.width = 36; // resize to 36x36
-					this.iconSprite.node.height = 36; // resize to 36x36
+					//this.iconSprite.node.setScale(30/texture.width); // resize to 36x36
+					this.iconSprite.node.width = 30; // resize
+					this.iconSprite.node.height = 30; // resize
 				});
 		}
 	},
