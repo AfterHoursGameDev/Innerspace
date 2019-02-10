@@ -81,5 +81,14 @@ cc.Class({
 		cc.director.loadScene("HighScores");
 	},
 
+	QuitGame(){
+		if (typeof FBInstant !== 'undefined') {
+			FBInstant.quit();
+		}
+		else{
+			cc.game.end();
+		}
+	}
+
     // update (dt) {},
 });
