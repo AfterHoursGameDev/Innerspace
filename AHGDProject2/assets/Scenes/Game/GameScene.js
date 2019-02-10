@@ -34,7 +34,8 @@ cc.Class({
 		IngredientTypes: { default: [], type: cc.SpriteFrame },
 		PickedType: { default: null, type: cc.SpriteFrame },
 		BeerBottleLiquid: { default: null, type: cc.Node },
-		
+		BeerBottle: { default: null, type: cc.Node },
+	
 		PlantCount: 2,
 		Score: 0,
 		MaxClickDistance: 50,
@@ -235,7 +236,7 @@ cc.Class({
 		var liquid = this.BeerBottleLiquid;
 		liquid.scale = cc.v2(1, 0);
 		var ratio = ((this.SetsCompleted) / this.SetsRequired);
-		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
+		liquid.runAction(new cc.scaleTo(0.0, 1, ratio));
 	},
 	
 	ResetBoard()
@@ -403,17 +404,30 @@ cc.Class({
 		this.SetsCompleted = 0;
 		//this.ResetBoard();
 		this.ResetBeer();
+		this.IsEffectActive = false;
 		this.PlantCount += 2;
 		this.UpdatePlantCount();
+	},
+	
+	BeerStartBlastOff()
+	{
+		var action1 = cc.moveTo(0.75, this.BeerBottle.x, 1000.0);
+		var action2 = cc.moveTo(0.0, this.BeerBottle.x, -1000.0);
+		var action3 = cc.callFunc(this.ResetBeer, this);
+		var action4 = cc.moveTo(0.75, this.BeerBottle.x, this.BeerBottle.y);
+		var action5 = cc.callFunc(this.BeerCompletedDoneAnim, this);
+		var seq = cc.sequence(action1, action2, action3, action4, action5);
+		this.BeerBottle.runAction(seq);
 	},
 	
 	BeerCompleted()
 	{
 		// Let the beer animate
+		this.IsEffectActive = true;
 		var liquid = this.BeerBottleLiquid;
 		var ratio = ((this.SetsCompleted) / this.SetsRequired);
-		liquid.runAction(new cc.scaleTo(0.5, 1, ratio));
-		setTimeout(function() {this.BeerCompletedDoneAnim();}.bind(this), 500);
+		liquid.runAction(new cc.scaleTo(0.25, 1, ratio));
+		setTimeout(function() {this.BeerStartBlastOff();}.bind(this), 250);
 	},
 	
 	DrinkBeer()
