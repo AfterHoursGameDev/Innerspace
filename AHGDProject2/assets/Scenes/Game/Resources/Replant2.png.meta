@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e0e8a6f2-8e92-4728-9e10-24bbda5a902a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "Replant2": {
+      "ver": "1.0.3",
+      "uuid": "ffb69c3b-0597-475f-9078-5d585e028c4e",
+      "rawTextureUuid": "e0e8a6f2-8e92-4728-9e10-24bbda5a902a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 400,
+      "height": 254,
+      "rawWidth": 400,
+      "rawHeight": 254,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

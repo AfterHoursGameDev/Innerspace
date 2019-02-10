@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "13285696-2653-4189-84d2-6059c6177737",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "ReplantIcon": {
+      "ver": "1.0.3",
+      "uuid": "30581b14-e844-4f21-b97a-cd81122bfc01",
+      "rawTextureUuid": "13285696-2653-4189-84d2-6059c6177737",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 70,
+      "height": 100,
+      "rawWidth": 70,
+      "rawHeight": 100,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
