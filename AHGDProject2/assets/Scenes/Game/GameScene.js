@@ -8,6 +8,8 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+var SoundType = require("SoundType");
+
 cc.Class({
     extends: cc.Component,
 
@@ -101,6 +103,8 @@ cc.Class({
 	
 	EndGame()
 	{
+		window.SoundManager.stopBackgroundMusic();
+		window.SoundManager.playSound(SoundType.GameOver, false);
 		// Out of solutions! End game
 		this.IsEffectActive = true;
 		// Pause a second, then go on
@@ -152,6 +156,12 @@ cc.Class({
 		}
 	},
 	
+	QuitPressed()
+	{
+		window.SoundManager.playSound(SoundType.Button, false);
+		this.GotoMainScene();
+	},
+	
 	GotoMainScene()
 	{
 		cc.director.loadScene("MainScene");
@@ -166,6 +176,7 @@ cc.Class({
 	{
 		if ((this.PlantCount > 0) && (this.AreAnyPlotsAvailable()))
 		{
+			window.SoundManager.playSound(SoundType.Plant, false);
 			this.PlantCount--;
 			this.UpdatePlantCount();
 			this.PlantNewPlants();
@@ -178,6 +189,7 @@ cc.Class({
 		}
 		else if (this.PlantCount > 0)
 		{
+			window.SoundManager.playSound(SoundType.Plant, false);
 			// No spots available, replant fully
 			// Full replant!
 			for (var i=0; i<this.Tokens.length; i++)
@@ -405,8 +417,6 @@ cc.Class({
 		//this.ResetBoard();
 		this.ResetBeer();
 		this.IsEffectActive = false;
-		this.PlantCount += 2;
-		this.UpdatePlantCount();
 	},
 	
 	BeerStartBlastOff()
@@ -423,11 +433,16 @@ cc.Class({
 	BeerCompleted()
 	{
 		// Let the beer animate
+		window.SoundManager.playSound(SoundType.BeerComplete, false);
 		this.IsEffectActive = true;
 		var liquid = this.BeerBottleLiquid;
 		var ratio = ((this.SetsCompleted) / this.SetsRequired);
 		liquid.runAction(new cc.scaleTo(0.25, 1, ratio));
 		setTimeout(function() {this.BeerStartBlastOff();}.bind(this), 250);
+		
+		// Immediately update plant count (so it doesn't treat as last move)
+		this.PlantCount += 2;
+		this.UpdatePlantCount();
 	},
 	
 	DrinkBeer()
@@ -462,6 +477,7 @@ cc.Class({
 			{
 				// No shake
 				// Replace chosen with picked
+				window.SoundManager.playSound(SoundType.Match, false);
 				this.PickSelectedPlants();
 				this.ClearSelected();
 				this.DrinkBeer();
@@ -477,6 +493,7 @@ cc.Class({
 			}
 			else
 			{
+				window.SoundManager.playSound(SoundType.WrongMove, false);
 				this.ShakeSelected();
 				this.ClearSelected();
 			}

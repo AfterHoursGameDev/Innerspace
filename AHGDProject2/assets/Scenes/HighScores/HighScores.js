@@ -9,6 +9,7 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 var ScoreLine = require("ScoreLine");
+var SoundType = require("SoundType");
 
 cc.Class({
     extends: cc.Component,
@@ -80,6 +81,8 @@ cc.Class({
 
 	ExitPressed()
 	{
+		window.SoundManager.playSound(SoundType.Button, false);
+		window.SoundManager.continueBackgroundMusic();
 		cc.director.loadScene("MainScene");
 	},
 	

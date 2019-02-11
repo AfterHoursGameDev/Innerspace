@@ -17,7 +17,7 @@
         "__id__": 2
       },
       {
-        "__id__": 66
+        "__id__": 65
       }
     ],
     "_active": true,
@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5859375,
-      "y": 0.5859375,
+      "x": 0.8046875,
+      "y": 0.8046875,
       "z": 1
     },
     "_quat": {
@@ -115,10 +115,10 @@
         "__id__": 63
       },
       {
-        "__id__": 64
+        "__id__": 82
       },
       {
-        "__id__": 65
+        "__id__": 83
       }
     ],
     "_prefab": null,
@@ -2161,8 +2161,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 295,
-      "y": -122,
+      "x": 305,
+      "y": -117,
       "z": 0
     },
     "_scale": {
@@ -2426,7 +2426,7 @@
       "__id__": 2
     },
     "component": "MainScene",
-    "handler": "PlayPressed",
+    "handler": "CreditsPressed",
     "customEventData": ""
   },
   {
@@ -2840,8 +2840,8 @@
       "width": 960,
       "height": 640
     },
-    "_fitWidth": false,
-    "_fitHeight": false,
+    "_fitWidth": true,
+    "_fitHeight": true,
     "_id": "b63nEmArJB7qE8bvRqI5Ol"
   },
   {
@@ -2855,46 +2855,23 @@
     "NameOnDisplay": {
       "__id__": 61
     },
+    "SoundManager": {
+      "__id__": 64
+    },
     "_id": "43wq7dmx1Hk4gyOdePYOGO"
   },
   {
-    "__type__": "cc.Mask",
+    "__type__": "37c416VISpB8LZ+1DQuVYGw",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 2
+      "__id__": 65
     },
     "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": null,
-    "_type": 0,
-    "_segments": 64,
-    "_N$alphaThreshold": 0,
-    "_N$inverted": false,
-    "_id": "acYVce7RxFm5TPQH3xqQlA"
-  },
-  {
-    "__type__": "2d85feWxgBJRKVDgkTvMhhg",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "Music": {
+    "backgroundMusic": {
       "__uuid__": "2c0919db-0d4b-4a96-af5a-c22ef06122dc"
     },
-    "_id": "7fv9hHBR9E54yaalpxOnNT"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "SoundManager",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [
+    "audioSources": [
       {
         "__id__": 67
       },
@@ -2920,11 +2897,72 @@
         "__id__": 81
       }
     ],
+    "audioClips": [
+      {
+        "__uuid__": "7caf5a23-a457-4502-9799-fc3c37c34bc1"
+      },
+      {
+        "__uuid__": "8bbb6673-ac49-4b90-a88e-4b881f18dada"
+      },
+      {
+        "__uuid__": "e57cee1c-be4b-4a2c-a48b-05ad5d83ff80"
+      },
+      {
+        "__uuid__": "f8e882e0-1247-4736-87f5-88f959d049d0"
+      },
+      {
+        "__uuid__": "753e9f1a-a990-4f7d-a39b-cffe3c0b7cf1"
+      },
+      {
+        "__uuid__": "c8b71537-c542-4d9c-9bad-812f0693ec7d"
+      },
+      {
+        "__uuid__": "db85096d-db7f-4d1a-8d01-956534ca88d8"
+      },
+      {
+        "__uuid__": "ca7730b4-878a-4005-9cb7-3ec23c82c1ad"
+      }
+    ],
+    "_id": "09rIF0bGxGM4Nrr3LJWSQ+"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "SoundManager",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [
+      {
+        "__id__": 66
+      },
+      {
+        "__id__": 68
+      },
+      {
+        "__id__": 70
+      },
+      {
+        "__id__": 72
+      },
+      {
+        "__id__": 74
+      },
+      {
+        "__id__": 76
+      },
+      {
+        "__id__": 78
+      },
+      {
+        "__id__": 80
+      }
+    ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 64
       }
     ],
     "_prefab": null,
@@ -2978,14 +3016,14 @@
     "_name": "Match",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 68
+        "__id__": 67
       }
     ],
     "_prefab": null,
@@ -3039,7 +3077,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 67
+      "__id__": 66
     },
     "_enabled": true,
     "_clip": {
@@ -3057,14 +3095,14 @@
     "_name": "WrongMove",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 70
+        "__id__": 69
       }
     ],
     "_prefab": null,
@@ -3118,7 +3156,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 69
+      "__id__": 68
     },
     "_enabled": true,
     "_clip": {
@@ -3136,14 +3174,14 @@
     "_name": "Plant",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 72
+        "__id__": 71
       }
     ],
     "_prefab": null,
@@ -3197,7 +3235,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 71
+      "__id__": 70
     },
     "_enabled": true,
     "_clip": {
@@ -3215,14 +3253,14 @@
     "_name": "BeerComplete",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 74
+        "__id__": 73
       }
     ],
     "_prefab": null,
@@ -3276,7 +3314,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 72
     },
     "_enabled": true,
     "_clip": {
@@ -3294,14 +3332,14 @@
     "_name": "GameOver",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 76
+        "__id__": 75
       }
     ],
     "_prefab": null,
@@ -3355,7 +3393,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 74
     },
     "_enabled": true,
     "_clip": {
@@ -3373,14 +3411,14 @@
     "_name": "Button 1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 78
+        "__id__": 77
       }
     ],
     "_prefab": null,
@@ -3434,7 +3472,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 77
+      "__id__": 76
     },
     "_enabled": true,
     "_clip": {
@@ -3452,14 +3490,14 @@
     "_name": "Button 2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 80
+        "__id__": 79
       }
     ],
     "_prefab": null,
@@ -3513,7 +3551,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 79
+      "__id__": 78
     },
     "_enabled": true,
     "_clip": {
@@ -3531,14 +3569,14 @@
     "_name": "Button 3",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 66
+      "__id__": 65
     },
     "_children": [],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 82
+        "__id__": 81
       }
     ],
     "_prefab": null,
@@ -3592,7 +3630,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 81
+      "__id__": 80
     },
     "_enabled": true,
     "_clip": {
@@ -3606,42 +3644,33 @@
     "_id": "95xLhcksdG3IddMzqt7eJ5"
   },
   {
-    "__type__": "37c416VISpB8LZ+1DQuVYGw",
+    "__type__": "cc.Mask",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 66
+      "__id__": 2
     },
     "_enabled": true,
-    "backgroundMusic": {
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": null,
+    "_type": 0,
+    "_segments": 64,
+    "_N$alphaThreshold": 0,
+    "_N$inverted": false,
+    "_id": "acYVce7RxFm5TPQH3xqQlA"
+  },
+  {
+    "__type__": "2d85feWxgBJRKVDgkTvMhhg",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "Music": {
       "__uuid__": "2c0919db-0d4b-4a96-af5a-c22ef06122dc"
     },
-    "audioSources": [
-      {
-        "__id__": 68
-      },
-      {
-        "__id__": 70
-      },
-      {
-        "__id__": 72
-      },
-      {
-        "__id__": 74
-      },
-      {
-        "__id__": 76
-      },
-      {
-        "__id__": 78
-      },
-      {
-        "__id__": 80
-      },
-      {
-        "__id__": 82
-      }
-    ],
-    "_id": "09rIF0bGxGM4Nrr3LJWSQ+"
+    "_id": "7fv9hHBR9E54yaalpxOnNT"
   }
 ]

@@ -8,6 +8,9 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+var SoundManager = require("SoundManager");
+var SoundType = require("SoundType");
+
 cc.Class({
     extends: cc.Component,
 
@@ -28,6 +31,7 @@ cc.Class({
         //     }
         // },
 		NameOnDisplay: { default: null, type: cc.Label },
+		SoundManager: { default: null, type: SoundManager },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -59,11 +63,19 @@ cc.Class({
 	
 	PlayPressed()
 	{
+		window.SoundManager.playSound(SoundType.Button, false);
 		cc.director.loadScene("Game");
+	},
+	
+	CreditsPressed()
+	{
+		window.SoundManager.playSound(SoundType.Button, false);
+		//cc.director.loadScene("Credits");
 	},
 	
 	InvitePressed()
 	{
+		window.SoundManager.playSound(SoundType.Button, false);
 		if (typeof FBInstant !== 'undefined') {
 			console.log("Sharing");
 			FBInstant.shareAsync({
@@ -78,10 +90,12 @@ cc.Class({
 	
 	HighScoresPressed()
 	{
+		window.SoundManager.playSound(SoundType.Button, false);
 		cc.director.loadScene("HighScores");
 	},
 
 	QuitGame(){
+		window.SoundManager.playSound(SoundType.Button, false);
 		if (typeof FBInstant !== 'undefined') {
 			FBInstant.quit();
 		}
