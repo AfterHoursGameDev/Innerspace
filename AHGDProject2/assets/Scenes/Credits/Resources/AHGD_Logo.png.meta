@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "5cda5b7a-fa26-4fc5-b584-f2c830af9360",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "AHGD_Logo": {
+      "ver": "1.0.3",
+      "uuid": "db4f439b-2d21-480c-a3cb-26952fd47731",
+      "rawTextureUuid": "5cda5b7a-fa26-4fc5-b584-f2c830af9360",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -8,
+      "offsetY": 95.5,
+      "trimX": 150,
+      "trimY": 159,
+      "width": 1790,
+      "height": 1597,
+      "rawWidth": 2106,
+      "rawHeight": 2106,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

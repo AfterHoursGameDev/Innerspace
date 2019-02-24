@@ -6,7 +6,7 @@
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "BeerBottleGuage": {
+    "beerBottleGuage": {
       "ver": "1.0.3",
       "uuid": "0168be32-5b04-404a-8d43-9ec69e370750",
       "rawTextureUuid": "5b001a5a-3876-4cbd-82a2-c0308bdb0caa",

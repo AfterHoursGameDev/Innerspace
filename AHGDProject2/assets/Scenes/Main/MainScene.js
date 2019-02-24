@@ -70,7 +70,7 @@ cc.Class({
 	CreditsPressed()
 	{
 		window.SoundManager.playSound(SoundType.Button, false);
-		//cc.director.loadScene("Credits");
+		cc.director.loadScene("Credits");
 	},
 	
 	InvitePressed()
