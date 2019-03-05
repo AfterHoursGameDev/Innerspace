@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.8046875,
-      "y": 0.8046875,
+      "x": 0.7984375,
+      "y": 0.7984375,
       "z": 1
     },
     "_quat": {
@@ -2869,7 +2869,7 @@
     },
     "_enabled": true,
     "backgroundMusic": {
-      "__uuid__": "2c0919db-0d4b-4a96-af5a-c22ef06122dc"
+      "__uuid__": "4bf6d742-d96c-49fc-bcac-e554cfac0fb9"
     },
     "audioSources": [
       {
@@ -2899,28 +2899,28 @@
     ],
     "audioClips": [
       {
-        "__uuid__": "7caf5a23-a457-4502-9799-fc3c37c34bc1"
+        "__uuid__": "959c4447-318c-4b97-b0b1-2c88e12a2f4f"
       },
       {
-        "__uuid__": "8bbb6673-ac49-4b90-a88e-4b881f18dada"
+        "__uuid__": "4f62b50b-fca9-435a-83ae-ed5988bdde97"
       },
       {
-        "__uuid__": "e57cee1c-be4b-4a2c-a48b-05ad5d83ff80"
+        "__uuid__": "7b6b16de-4a52-46d6-8412-3c1de47d007e"
       },
       {
-        "__uuid__": "f8e882e0-1247-4736-87f5-88f959d049d0"
+        "__uuid__": "bd502b2c-77b8-4f9c-91f4-21693835ea1e"
       },
       {
-        "__uuid__": "753e9f1a-a990-4f7d-a39b-cffe3c0b7cf1"
+        "__uuid__": "6d4eae46-4a6b-4d7b-84af-b671502cb7b0"
       },
       {
-        "__uuid__": "c8b71537-c542-4d9c-9bad-812f0693ec7d"
+        "__uuid__": "317da0cb-393d-466c-9e05-27cf668f524e"
       },
       {
-        "__uuid__": "db85096d-db7f-4d1a-8d01-956534ca88d8"
+        "__uuid__": "c71e2871-d7ab-4a1c-b5ab-4981612a31ca"
       },
       {
-        "__uuid__": "ca7730b4-878a-4005-9cb7-3ec23c82c1ad"
+        "__uuid__": "bb730901-eefd-40f9-96b4-4d5d9d60a9c7"
       }
     ],
     "_id": "09rIF0bGxGM4Nrr3LJWSQ+"
@@ -3081,7 +3081,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "7caf5a23-a457-4502-9799-fc3c37c34bc1"
+      "__uuid__": "959c4447-318c-4b97-b0b1-2c88e12a2f4f"
     },
     "_volume": 1,
     "_mute": false,
@@ -3160,7 +3160,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "8bbb6673-ac49-4b90-a88e-4b881f18dada"
+      "__uuid__": "4f62b50b-fca9-435a-83ae-ed5988bdde97"
     },
     "_volume": 1,
     "_mute": false,
@@ -3239,7 +3239,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "e57cee1c-be4b-4a2c-a48b-05ad5d83ff80"
+      "__uuid__": "7b6b16de-4a52-46d6-8412-3c1de47d007e"
     },
     "_volume": 1,
     "_mute": false,
@@ -3318,7 +3318,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "f8e882e0-1247-4736-87f5-88f959d049d0"
+      "__uuid__": "bd502b2c-77b8-4f9c-91f4-21693835ea1e"
     },
     "_volume": 1,
     "_mute": false,
@@ -3397,7 +3397,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "753e9f1a-a990-4f7d-a39b-cffe3c0b7cf1"
+      "__uuid__": "6d4eae46-4a6b-4d7b-84af-b671502cb7b0"
     },
     "_volume": 1,
     "_mute": false,
@@ -3476,7 +3476,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "c8b71537-c542-4d9c-9bad-812f0693ec7d"
+      "__uuid__": "317da0cb-393d-466c-9e05-27cf668f524e"
     },
     "_volume": 1,
     "_mute": false,
@@ -3555,7 +3555,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "db85096d-db7f-4d1a-8d01-956534ca88d8"
+      "__uuid__": "c71e2871-d7ab-4a1c-b5ab-4981612a31ca"
     },
     "_volume": 1,
     "_mute": false,
@@ -3634,7 +3634,7 @@
     },
     "_enabled": true,
     "_clip": {
-      "__uuid__": "ca7730b4-878a-4005-9cb7-3ec23c82c1ad"
+      "__uuid__": "bb730901-eefd-40f9-96b4-4d5d9d60a9c7"
     },
     "_volume": 1,
     "_mute": false,
@@ -3668,9 +3668,7 @@
       "__id__": 2
     },
     "_enabled": true,
-    "Music": {
-      "__uuid__": "2c0919db-0d4b-4a96-af5a-c22ef06122dc"
-    },
+    "Music": null,
     "_id": "7fv9hHBR9E54yaalpxOnNT"
   }
 ]
