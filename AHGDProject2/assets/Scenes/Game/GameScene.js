@@ -9,6 +9,7 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 var SoundType = require("SoundType");
+var MatchAnimation = require("MatchAnimation");
 
 cc.Class({
     extends: cc.Component,
@@ -37,6 +38,7 @@ cc.Class({
 		PickedType: { default: null, type: cc.SpriteFrame },
 		BeerBottleLiquid: { default: null, type: cc.Node },
 		BeerBottle: { default: null, type: cc.Node },
+		MatchAnim: { default: null, type: MatchAnimation },
 	
 		PlantCount: 2,
 		Score: 0,
@@ -407,6 +409,15 @@ cc.Class({
 		for (var i=0; i<this.SelectedTokens.length; i++)
 		{
 			var token = this.SelectedTokens[i];
+			for (var j=0; j<4; j++)
+			{
+				if (token.spriteFrame == this.IngredientTypes[j])
+				{
+					var pos = token.node.convertToWorldSpaceAR(cc.v2(0, 0));
+					this.MatchAnim.StartToken(j, pos);
+					break;
+				}
+			}
 			token.spriteFrame = this.PickedType;
 		}
 	},
