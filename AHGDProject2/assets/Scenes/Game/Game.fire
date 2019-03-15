@@ -41,9 +41,9 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.853125,
-      "y": 0.853125,
-      "z": 0.853125
+      "x": 0.5761914253234863,
+      "y": 0.5761914253234863,
+      "z": 0.5761914253234863
     },
     "_quat": {
       "__type__": "cc.Quat",
@@ -4834,7 +4834,7 @@
         "__id__": 103
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 1,
     "_components": [
       {
@@ -5148,8 +5148,8 @@
     "target": {
       "__id__": 2
     },
-    "component": "GameScene",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "d78f86yGcpInqYcBhTj7lX/",
     "handler": "QuitPressed",
     "customEventData": ""
   },
