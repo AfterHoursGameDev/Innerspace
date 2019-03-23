@@ -73,6 +73,12 @@ cc.Class({
 		cc.director.loadScene("Credits");
 	},
 	
+	HelpPressed()
+	{
+		window.SoundManager.playSound(SoundType.Button, false);
+		cc.director.loadScene("HowToPlay");
+	},
+	
 	InvitePressed()
 	{
 		window.SoundManager.playSound(SoundType.Button, false);
